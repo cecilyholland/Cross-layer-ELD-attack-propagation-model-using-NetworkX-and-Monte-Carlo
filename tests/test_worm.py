@@ -16,7 +16,7 @@ import sys
 import pytest
 import numpy as np
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "h3_worm"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "h2_worm"))
 from worm_model import WormModel, generate_truckstop_layout, Truck
 
 CONFIG_PATH = os.path.join(os.path.dirname(__file__), "..", "config.json")

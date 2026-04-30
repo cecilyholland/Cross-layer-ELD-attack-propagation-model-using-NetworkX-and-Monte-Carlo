@@ -89,7 +89,7 @@ This runs:
 python h1_attack_graph/graph_definitions.py
 
 # Run H2 worm simulation
-python h3_worm/run_worm.py
+python h2_worm/run_worm.py
 
 # Run H1 Monte Carlo (uses worm output as entry rate)
 python h1_attack_graph/run_simulation.py
@@ -169,7 +169,7 @@ All parameters are in `config.json`:
 │   ├── graph_definitions.py    # Attack graph nodes, edges, probabilities
 │   ├── monte_carlo.py          # Monte Carlo simulation engine
 │   └── run_simulation.py       # H1 entry point
-├── h3_worm/
+├── h2_worm/
 │   ├── worm_model.py           # SIR epidemic model
 │   └── run_worm.py             # H2 entry point
 ├── figures/

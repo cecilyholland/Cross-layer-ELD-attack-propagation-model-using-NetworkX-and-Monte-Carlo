@@ -15,7 +15,7 @@ import sys
 import os
 
 STEPS = [
-    ("H2 — Worm propagation",       ["h3_worm/run_worm.py"]),
+    ("H2 — Worm propagation",       ["h2_worm/run_worm.py"]),
     ("H1 — Attack graph simulation", ["h1_attack_graph/run_simulation.py"]),
     ("Figures — Generate all",       ["figures/generate_all.py"]),
 ]

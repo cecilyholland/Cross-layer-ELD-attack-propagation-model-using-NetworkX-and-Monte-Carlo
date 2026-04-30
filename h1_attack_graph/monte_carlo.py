@@ -161,8 +161,8 @@ def run_scenario(
     G_base: nx.DiGraph,
     config: dict,
     scenario_name: str,
-    n_trials: int = None,
-    worm_output: dict = None,
+    n_trials: int | None = None,
+    worm_output: dict | None = None,
 ) -> ScenarioResults:
     """
     Run all trials for one scenario and return aggregated results.
@@ -179,7 +179,7 @@ def run_scenario(
     rng = np.random.default_rng(seed)
 
     if n_trials is None:
-        n_trials = config["simulation"]["n_trials"]
+        n_trials = int(config["simulation"]["n_trials"])
 
     G = apply_scenario(G_base, scenario_name, config)
     paths = get_all_attack_paths(G)
@@ -302,9 +302,9 @@ def _aggregate(raw_trials: list[TrialResult], scenario_name: str, G: nx.DiGraph)
 # ---------------------------------------------------------------------------
 
 def run_all_scenarios(
-    config_path: str = None,
-    worm_output_path: str = None,
-    output_path: str = None,
+    config_path: str | None = None,
+    worm_output_path: str | None = None,
+    output_path: str | None = None,
 ) -> dict[str, ScenarioResults]:
 
     if config_path is None:

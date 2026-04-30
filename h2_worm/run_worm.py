@@ -5,7 +5,7 @@ Entry point for H2 worm propagation simulation.
 Runs all three policy scenarios and writes outputs/worm_output.json.
 
 Usage:
-    python h3_worm/run_worm.py
+    python h2_worm/run_worm.py
 """
 
 from __future__ import annotations
