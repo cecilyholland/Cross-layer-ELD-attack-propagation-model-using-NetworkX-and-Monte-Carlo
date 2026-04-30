@@ -36,7 +36,7 @@ Layer 1 (Wireless Entry)     Layer 2 (Vehicle Bus)        Layer 3 (Backend)
 Alt-path (bypass): eld_firmware ──────────────────────────► telematics_api (skips Layer 2)
 ```
 
-### Worm Propagation (H3)
+### Worm Propagation (H2)
 
 SIR epidemic model simulating worm spread across truck fleet at a truck stop. Infected truck count feeds H1 as the attack entry rate.
 
@@ -78,7 +78,7 @@ python run_all.py
 ```
 
 This runs:
-1. H3 worm propagation → `outputs/worm_output.json`
+1. H2 worm propagation → `outputs/worm_output.json`
 2. H1 attack graph Monte Carlo → `outputs/simulation_results.json`
 3. Figure generation → `outputs/figures/`
 
@@ -88,7 +88,7 @@ This runs:
 # Verify graph structure
 python h1_attack_graph/graph_definitions.py
 
-# Run H3 worm simulation
+# Run H2 worm simulation
 python h3_worm/run_worm.py
 
 # Run H1 Monte Carlo (uses worm output as entry rate)
@@ -109,7 +109,7 @@ pytest tests/ -v
 | Figure | Description |
 |--------|-------------|
 | `fig1_scenario_comparison.png` | Success vs detection rate bar chart |
-| `fig2_worm_propagation.png` | SIR curves for H3 worm spread |
+| `fig2_worm_propagation.png` | SIR curves for H2 worm spread |
 | `fig3_layer_detection.png` | Per-layer detection rate heatmap |
 | `fig4_path_frequencies.png` | Attack path selection (main vs alt-path) |
 | `fig5_ttc_cdf.png` | CDF of time-to-compromise |
@@ -171,7 +171,7 @@ All parameters are in `config.json`:
 │   └── run_simulation.py       # H1 entry point
 ├── h3_worm/
 │   ├── worm_model.py           # SIR epidemic model
-│   └── run_worm.py             # H3 entry point
+│   └── run_worm.py             # H2 entry point
 ├── figures/
 │   └── generate_all.py         # All six figures
 ├── outputs/                    # Generated outputs (gitignored)

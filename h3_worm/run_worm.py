@@ -1,7 +1,7 @@
 """
 run_worm.py
 -----------
-Entry point for H3 worm propagation simulation.
+Entry point for H2 worm propagation simulation.
 Runs all three policy scenarios and writes outputs/worm_output.json.
 
 Usage:
@@ -25,7 +25,7 @@ def main():
     with open(CONFIG_PATH) as f:
         config = json.load(f)
 
-    print("Running H3 worm propagation simulation...")
+    print("Running H2 worm propagation simulation...")
     results = run_all_policies(config)
 
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)

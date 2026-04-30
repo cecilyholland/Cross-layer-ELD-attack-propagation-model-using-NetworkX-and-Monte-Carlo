@@ -1,15 +1,15 @@
-#entry point, reads H3 output or runs standalone
+#entry point, reads H2 output or runs standalone
 """
 run_simulation.py
 -----------------
 Entry point for H1 cross-layer attack graph simulation.
-Reads H3 worm output if available, otherwise runs standalone.
+Reads H2 worm output if available, otherwise runs standalone.
 
 Usage:
-    # Standalone (no H3 integration):
+    # Standalone (no H2 integration):
     python h1_attack_graph/run_simulation.py
 
-    # With H3 worm output feeding entry rate:
+    # With H2 worm output feeding entry rate:
     python h1_attack_graph/run_simulation.py --worm outputs/worm_output.json
 """
 
@@ -33,7 +33,7 @@ def main():
         "--worm",
         type=str,
         default=None,
-        help="Path to worm_output.json from H3 (optional)",
+        help="Path to worm_output.json from H2 (optional)",
     )
     parser.add_argument(
         "--trials",
@@ -47,7 +47,7 @@ def main():
     worm_path = args.worm
     default_worm = os.path.join(os.path.dirname(__file__), "..", "outputs", "worm_output.json")
     if worm_path is None and os.path.exists(default_worm):
-        print(f"Found H3 worm output at {default_worm} — using as entry rate input.")
+        print(f"Found H2 worm output at {default_worm} — using as entry rate input.")
         worm_path = default_worm
     elif worm_path is None:
         print("No worm output found — running H1 standalone with fixed trial rate.")

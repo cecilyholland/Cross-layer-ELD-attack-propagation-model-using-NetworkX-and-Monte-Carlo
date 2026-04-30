@@ -102,7 +102,7 @@ def fig2_worm_propagation(worm_output):
             ax.set_ylabel("Number of Trucks")
             ax.legend(loc="upper right")
 
-    plt.suptitle("H3: Worm Propagation in Truck Stop Fleet (SIR Model)", fontsize=12, y=1.02)
+    plt.suptitle("H2: Worm Propagation in Truck Stop Fleet (SIR Model)", fontsize=12, y=1.02)
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "fig2_worm_propagation.png"), dpi=150, bbox_inches="tight")
     plt.close()

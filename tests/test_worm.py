@@ -1,7 +1,7 @@
 """
 tests/test_worm.py
 ------------------
-Unit tests for H3 worm propagation model.
+Unit tests for H2 worm propagation model.
 
 Run with:
     pytest tests/test_worm.py -v

@@ -16,7 +16,7 @@ Key design decisions:
     This is intentional and supports the paper's main argument.
   - Time-to-compromise accumulates edge traversal costs even when detection occurs,
     because a real defender still needs to respond.
-  - H3 integration: if worm_output is provided, the per-timestep trial rate scales
+  - H2 integration: if worm_output is provided, the per-timestep trial rate scales
     with the number of infected trucks, creating a realistic entry funnel.
 """
 
@@ -172,7 +172,7 @@ def run_scenario(
         config       : loaded config.json dict
         scenario_name: one of 'baseline', 'single_layer', 'cross_layer'
         n_trials     : override trial count (defaults to config value)
-        worm_output  : optional H3 output dict with keys 't_minutes', 'n_infected'
+        worm_output  : optional H2 output dict with keys 't_minutes', 'n_infected'
                        If provided, trial launch rate scales with worm spread.
     """
     seed = config["simulation"]["random_seed"]
@@ -185,7 +185,7 @@ def run_scenario(
     paths = get_all_attack_paths(G)
     path_weights = compute_path_weights(G, paths)
 
-    # H3 integration: build per-trial entry rate multiplier
+    # H2 integration: build per-trial entry rate multiplier
     if worm_output is not None:
         trial_weights = _build_worm_trial_weights(worm_output, n_trials)
     else:
@@ -213,7 +213,7 @@ def run_scenario(
 
 def _build_worm_trial_weights(worm_output: dict, n_trials: int) -> np.ndarray:
     """
-    Map H3 worm infection curve onto trial indices.
+    Map H2 worm infection curve onto trial indices.
     Trials later in the sequence are more likely to fire (more infected trucks = 
     more concurrent attack attempts).
     """
@@ -318,7 +318,7 @@ def run_all_scenarios(
 
     worm_output = None
     if worm_output_path and os.path.exists(worm_output_path):
-        print(f"Loading H3 worm output from {worm_output_path}")
+        print(f"Loading H2 worm output from {worm_output_path}")
         with open(worm_output_path) as f:
             raw = json.load(f)
         # worm_output.json is keyed by policy — use baseline as the entry rate
